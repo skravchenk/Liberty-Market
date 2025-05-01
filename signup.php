@@ -1,26 +1,20 @@
 <?php
-// Старт сессии ДО любого вывода
 session_start();
 
-// Включим буферизацию вывода
 ob_start();
 
-// Функция для очистки ввода
 function clean_input($data) {
     return htmlspecialchars(stripslashes(trim($data)));
 }
 
-// Инициализация переменных
 $username = $email = '';
 $errors = [];
 
-// Обработка формы
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $username = clean_input($_POST['username'] ?? '');
     $email = clean_input($_POST['email'] ?? '');
     $password = $_POST['password'] ?? '';
     
-    // Валидация
     if (empty($username)) $errors['username'] = 'Enter username';
     elseif (!preg_match('/^[a-zA-Z0-9_]+$/', $username)) $errors['username'] = 'Only letters, numbers and underscores allowed';
     
@@ -30,17 +24,13 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     if (empty($password)) $errors['password'] = 'Enter password';
     elseif (strlen($password) < 6) $errors['password'] = 'Password must be at least 6 characters';
     
-    // Если нет ошибок
     if (empty($errors)) {
         $_SESSION['success'] = 'Success!';
-        $_SESSION['form_data'] = []; // Очищаем предыдущие данные
-        
-        // Очищаем буфер и делаем редирект
+        $_SESSION['form_data'] = [];
         ob_end_clean();
         header('Location: '.$_SERVER['PHP_SELF']);
         exit();
     } else {
-        // Сохраняем введенные данные для повторного показа
         $_SESSION['form_data'] = [
             'username' => $username,
             'email' => $email
@@ -48,7 +38,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     }
 }
 
-// Получаем сохраненные данные из сессии
 if (isset($_SESSION['form_data'])) {
     $username = $_SESSION['form_data']['username'] ?? '';
     $email = $_SESSION['form_data']['email'] ?? '';
@@ -103,6 +92,5 @@ include 'header.php';
 </body>
 </html>
 <?php
-// Завершаем буферизацию если не было редиректа
 ob_end_flush();
 ?>
