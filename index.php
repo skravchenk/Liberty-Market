@@ -1,82 +1,8 @@
-<!DOCTYPE html>
-<html lang="en">
+<?php
+  include 'header.php';
+?>
 
-  <head>
-
-    <meta charset="utf-8">
-    <meta name="author" content="templatemo">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700;900&display=swap" rel="stylesheet">
-
-    <title>Liberty NFT Marketplace - HTML CSS Template</title>
-
-    <!-- Bootstrap core CSS -->
-    <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-
-
-    <!-- Additional CSS Files -->
-    <link rel="stylesheet" href="assets/css/fontawesome.css">
-    <link rel="stylesheet" href="assets/css/templatemo-liberty-market.css">
-    <link rel="stylesheet" href="assets/css/owl.css">
-    <link rel="stylesheet" href="assets/css/animate.css">
-    <link rel="stylesheet"href="https://unpkg.com/swiper@7/swiper-bundle.min.css"/>
-<!--
-
-TemplateMo 577 Liberty Market
-
-https://templatemo.com/tm-577-liberty-market
-
--->
-  </head>
-
-<body>
-
-  <!-- ***** Preloader Start ***** -->
-  <div id="js-preloader" class="js-preloader">
-    <div class="preloader-inner">
-      <span class="dot"></span>
-      <div class="dots">
-        <span></span>
-        <span></span>
-        <span></span>
-      </div>
-    </div>
-  </div>
-  <!-- ***** Preloader End ***** -->
-
-  <!-- ***** Header Area Start ***** -->
-  <header class="header-area header-sticky">
-    <div class="container">
-        <div class="row">
-            <div class="col-12">
-                <nav class="main-nav">
-                    <!-- ***** Logo Start ***** -->
-                    <a href="index.html" class="logo">
-                        <img src="assets/images/logo.png" alt="">
-                    </a>
-                    <!-- ***** Logo End ***** -->
-                    <!-- ***** Menu Start ***** -->
-                    <ul class="nav">
-                        <li><a href="index.html" class="active">Home</a></li>
-                        <li><a href="explore.html">Explore</a></li>
-                        <li><a href="details.html">Item Details</a></li>
-                        <li><a href="author.html">Author</a></li>
-                        <li><a href="create.html">Create Yours</a></li>
-                    </ul>   
-                    <a class='menu-trigger'>
-                        <span>Menu</span>
-                    </a>
-                    <!-- ***** Menu End ***** -->
-                </nav>
-            </div>
-        </div>
-    </div>
-  </header>
-  <!-- ***** Header Area End ***** -->
-
-  <!-- ***** Main Banner Area Start ***** -->
-  <div class="main-banner">
+<div class="main-banner">
     <div class="container">
       <div class="row">
         <div class="col-lg-6 align-self-center">
@@ -86,7 +12,7 @@ https://templatemo.com/tm-577-liberty-market
             <p>Liberty NFT Market is a really cool and professional design for your NFT websites. This HTML CSS template is based on Bootstrap v5 and it is designed for NFT related web portals. Liberty can be freely downloaded from TemplateMo's free css templates.</p>
             <div class="buttons">
               <div class="border-button">
-                <a href="explore.html">Explore Top NFTs</a>
+                <a href="explore.php">Explore Top NFTs</a>
               </div>
               <div class="main-button">
                 <a href="https://youtube.com/templatemo" target="_blank">Watch Our Videos</a>
@@ -208,7 +134,7 @@ https://templatemo.com/tm-577-liberty-market
                       <span class="collection">Items In Collection:<br><strong>310/340</strong></span>
                       <span class="category">Category:<br><strong>Digital Crypto</strong></span>
                       <div class="main-button">
-                        <a href="explore.html">Explore Mutant</a>
+                        <a href="explore.php">Explore Mutant</a>
                       </div>
                     </div>
                   </div>
@@ -219,7 +145,7 @@ https://templatemo.com/tm-577-liberty-market
                       <span class="collection">Items In Collection:<br><strong>324/324</strong></span>
                       <span class="category">Category:<br><strong>Visual Art</strong></span>
                       <div class="main-button">
-                        <a href="explore.html">Explore Bored Ape</a>
+                        <a href="explore.php">Explore Bored Ape</a>
                       </div>
                     </div>
                   </div>
@@ -230,7 +156,7 @@ https://templatemo.com/tm-577-liberty-market
                       <span class="collection">Items In Collection:<br><strong>380/394</strong></span>
                       <span class="category">Category:<br><strong>Music Art</strong></span>
                       <div class="main-button">
-                        <a href="explore.html">Explore Genesis</a>
+                        <a href="explore.php">Explore Genesis</a>
                       </div>
                     </div>
                   </div>
@@ -241,7 +167,7 @@ https://templatemo.com/tm-577-liberty-market
                       <span class="collection">Items In Collection:<br><strong>426/468</strong></span>
                       <span class="category">Category:<br><strong>Blockchain</strong></span>
                       <div class="main-button">
-                        <a href="explore.html">Explore Worldwide</a>
+                        <a href="explore.php">Explore Worldwide</a>
                       </div>
                     </div>
                   </div>
@@ -265,7 +191,7 @@ https://templatemo.com/tm-577-liberty-market
         </div>
         <div class="col-lg-4">
           <div class="main-button">
-            <a href="create.html">Create Your NFT Now</a>
+            <a href="create.php">Create Your NFT Now</a>
           </div>
         </div>
         <div class="col-lg-4">
@@ -346,7 +272,7 @@ https://templatemo.com/tm-577-liberty-market
                     Ends In<br><strong>4D 08H 15M 42S</strong><br><em>(July 24th, 2022)</em>
                   </span>
                   <div class="text-button">
-                    <a href="details.html">View Item Details</a>
+                    <a href="details.php">View Item Details</a>
                   </div>
                 </div>
               </div>
@@ -370,7 +296,7 @@ https://templatemo.com/tm-577-liberty-market
                     Ends In<br><strong>2D 06H 30M 25S</strong><br><em>(July 26th, 2022)</em>
                   </span>
                   <div class="text-button">
-                    <a href="details.html">View Item Details</a>
+                    <a href="details.php">View Item Details</a>
                   </div>
                 </div>
               </div>
@@ -394,7 +320,7 @@ https://templatemo.com/tm-577-liberty-market
                     Ends In<br><strong>6D 05H 40M 50S</strong><br><em>(July 28th, 2022)</em>
                   </span>
                   <div class="text-button">
-                    <a href="details.html">View Item Details</a>
+                    <a href="details.php">View Item Details</a>
                   </div>
                 </div>
               </div>
@@ -418,7 +344,7 @@ https://templatemo.com/tm-577-liberty-market
                     Ends In<br><strong>3D 05H 20M 58S</strong><br><em>(July 14th, 2022)</em>
                   </span>
                   <div class="text-button">
-                    <a href="details.html">View Item Details</a>
+                    <a href="details.php">View Item Details</a>
                   </div>
                 </div>
               </div>
@@ -442,7 +368,7 @@ https://templatemo.com/tm-577-liberty-market
                     Ends In<br><strong>4D 08H 32M 18S</strong><br><em>(July 16th, 2022)</em>
                   </span>
                   <div class="text-button">
-                    <a href="details.html">View Item Details</a>
+                    <a href="details.php">View Item Details</a>
                   </div>
                 </div>
               </div>
@@ -466,7 +392,7 @@ https://templatemo.com/tm-577-liberty-market
                     Ends In<br><strong>5D 10H 22M 24S</strong><br><em>(July 18th, 2022)</em>
                   </span>
                   <div class="text-button">
-                    <a href="details.html">View Item Details</a>
+                    <a href="details.php">View Item Details</a>
                   </div>
                 </div>
               </div>
@@ -477,30 +403,6 @@ https://templatemo.com/tm-577-liberty-market
     </div>
   </div>
 
-  <footer>
-    <div class="container">
-      <div class="row">
-        <div class="col-lg-12">
-          <p>Copyright © 2022 <a href="#">Liberty</a> NFT Marketplace Co., Ltd. All rights reserved.
-          &nbsp;&nbsp;
-          Designed by <a title="HTML CSS Templates" rel="sponsored" href="https://templatemo.com" target="_blank">TemplateMo</a></p>
-        </div>
-      </div>
-    </div>
-  </footer>
-
-
-  <!-- Scripts -->
-  <!-- Bootstrap core JavaScript -->
-  <script src="vendor/jquery/jquery.min.js"></script>
-  <script src="vendor/bootstrap/js/bootstrap.min.js"></script>
-
-  <script src="assets/js/isotope.min.js"></script>
-  <script src="assets/js/owl-carousel.js"></script>
-
-  <script src="assets/js/tabs.js"></script>
-  <script src="assets/js/popup.js"></script>
-  <script src="assets/js/custom.js"></script>
-
-  </body>
-</html>
+<?php
+  include 'footer.php';
+?>
