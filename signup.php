@@ -1,7 +1,9 @@
 <?php
 session_start();
-
 ob_start();
+
+require_once __DIR__ . '/db/Database.php';
+require_once __DIR__ . '/db/entities/User.php';
 
 function clean_input($data) {
     return htmlspecialchars(stripslashes(trim($data)));
@@ -10,25 +12,33 @@ function clean_input($data) {
 $username = $email = '';
 $errors = [];
 
-if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $username = clean_input($_POST['username'] ?? '');
     $email = clean_input($_POST['email'] ?? '');
     $password = $_POST['password'] ?? '';
-    
+
     if (empty($username)) $errors['username'] = 'Enter username';
     elseif (!preg_match('/^[a-zA-Z0-9_]+$/', $username)) $errors['username'] = 'Only letters, numbers and underscores allowed';
-    
+
     if (empty($email)) $errors['email'] = 'Enter email';
     elseif (!filter_var($email, FILTER_VALIDATE_EMAIL)) $errors['email'] = 'Incorrect email';
-    
+
     if (empty($password)) $errors['password'] = 'Enter password';
     elseif (strlen($password) < 6) $errors['password'] = 'Password must be at least 6 characters';
-    
+
     if (empty($errors)) {
-        $_SESSION['success'] = 'Success!';
+        $db = new Database();
+        $user = new User($db);
+
+        if ($user->register($username, $email, $password)) {
+            $_SESSION['success'] = 'Registration successful!';
+        } else {
+            $errors['form'] = 'Failed to register user.';
+        }
+
         $_SESSION['form_data'] = [];
         ob_end_clean();
-        header('Location: '.$_SERVER['PHP_SELF']);
+        header('Location: ' . $_SERVER['PHP_SELF']);
         exit();
     } else {
         $_SESSION['form_data'] = [
@@ -43,6 +53,7 @@ if (isset($_SESSION['form_data'])) {
     $email = $_SESSION['form_data']['email'] ?? '';
     unset($_SESSION['form_data']);
 }
+
 include 'header.php';
 ?>
 <!DOCTYPE html>
@@ -59,7 +70,11 @@ include 'header.php';
             <div class="success-message"><?= $_SESSION['success'] ?></div>
             <?php unset($_SESSION['success']); ?>
         <?php endif; ?>
-        
+
+        <?php if (isset($errors['form'])): ?>
+            <div class="error-message"><?= $errors['form'] ?></div>
+        <?php endif; ?>
+
         <h1>SignUp</h1>
         <form method="post">
             <div class="form-group">
@@ -69,7 +84,7 @@ include 'header.php';
                     <span class="error"><?= $errors['username'] ?></span>
                 <?php endif; ?>
             </div>
-            
+
             <div class="form-group">
                 <label>Email:</label>
                 <input type="email" name="email" value="<?= $email ?>" required>
@@ -77,7 +92,7 @@ include 'header.php';
                     <span class="error"><?= $errors['email'] ?></span>
                 <?php endif; ?>
             </div>
-            
+
             <div class="form-group">
                 <label>Password:</label>
                 <input type="password" name="password" required>
@@ -85,7 +100,7 @@ include 'header.php';
                     <span class="error"><?= $errors['password'] ?></span>
                 <?php endif; ?>
             </div>
-            
+
             <button type="submit" class="submit-btn">Submit</button>
         </form>
     </div>
