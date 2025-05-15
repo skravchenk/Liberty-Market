@@ -1,5 +1,5 @@
 <?php
-  include('header.php');
+  include('includes/header.php');
 ?>
 
   <div class="page-heading normal-space">
@@ -243,5 +243,5 @@
   </div>
 
 <?php
-  include('footer.php');
+  include('includes/footer.php');
 ?>
