@@ -9,7 +9,7 @@ try {
     $nftManager = new NFTManager($pdo);
     $nfts = $nftManager->readNFTs();
 } catch (Exception $e) {
-    die('DB Error: ' . $e->getMessage());
+    die('DB Error: ' . $e->getMessage()); 
 }
 ?>
 
@@ -143,8 +143,11 @@ try {
                     <div class="price">
                       <span>Price<br><strong><?= number_format($nft->getPrice(), 2) ?> ETH</strong></span>
                     </div>
-                    <div class="main-button">
-                      <a href="details.php?id=<?= urlencode($nft->getTitle()) ?>">View Details</a>
+                    <div class="d-flex gap-2 mt-2">
+                      <form action="delete.php" method="POST">
+                        <input type="hidden" name="id" value="<?= $nft->getId() ?>">
+                        <button type="submit" class="btn btn-sm btn-danger">Delete</button>
+                      </form>
                     </div>
                   </div>
                 </div>

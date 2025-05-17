@@ -17,10 +17,6 @@ class NFTManager
         $uploadDir = __DIR__ . './uploads/';
         $imagePaths = [];
 
-        if (!is_dir($uploadDir)) {
-            mkdir($uploadDir, 0777, true);
-        }
-
         foreach ($files['tmp_name'] as $key => $tmpName) {
             $type = $files['type'][$key];
             $name = basename($files['name'][$key]);
@@ -62,6 +58,7 @@ class NFTManager
 
         while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
             $nft = new NFT(
+                isset($row['id']) ? (int)$row['id'] : null,
                 $row['title'],
                 $row['description'],
                 $row['price'],
@@ -91,6 +88,10 @@ class NFTManager
         $row['owner'],
         explode(',', $row['images'])
     );
-}
+    }
 
+    public function deleteNFT(int $id): void {
+        $stmt = $this->db->prepare("DELETE FROM nfts WHERE id = ?");
+        $stmt->execute([$id]);
+    }
 }

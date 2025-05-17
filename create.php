@@ -20,7 +20,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
         $images = $manager->uploadImages($_FILES['myfiles']);
 
-        $nft = new NFT($title, $description, $price, $royalties, $images);
+        $nft = new NFT(null, $title, $description, $price, $royalties, $images);
         if ($manager->saveNFT($nft)) {
             $uploadSuccess = true;
         } else {
