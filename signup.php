@@ -2,8 +2,8 @@
 session_start();
 ob_start();
 
-require_once __DIR__ . '/db/Database.php';
-require_once __DIR__ . '/db/entities/User.php';
+require_once 'Database.php';
+require_once 'User.php';
 
 function clean_input($data) {
     return htmlspecialchars(stripslashes(trim($data)));
@@ -54,14 +54,14 @@ if (isset($_SESSION['form_data'])) {
     unset($_SESSION['form_data']);
 }
 
-include 'header.php';
+include 'includes/header.php';
 ?>
 <!DOCTYPE html>
 <html lang="ru">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Регистрация</title>
+    <title>Registration</title>
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>

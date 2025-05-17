@@ -53,4 +53,44 @@ class NFTManager
             'image_paths' => json_encode($nft->getImages()),
         ]);
     }
+
+    public function readNFTs(): array
+    {
+        $stmt = $this->db->query('SELECT * FROM nfts ORDER BY id DESC');
+
+        $nfts = [];
+
+        while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
+            $nft = new NFT(
+                $row['title'],
+                $row['description'],
+                $row['price'],
+                $row['royalties'],
+                json_decode($row['image_paths'], true)
+            );
+            $nfts[] = $nft;
+        }
+        return $nfts;
+    }
+
+    public function getNFTById(int $id): ?NFT {
+    $stmt = $this->pdo->prepare("SELECT * FROM nfts WHERE id = :id");
+    $stmt->execute(['id' => $id]);
+    $row = $stmt->fetch(PDO::FETCH_ASSOC);
+
+    if (!$row) {
+        return null;
+    }
+
+    return new NFT(
+        $row['id'],
+        $row['title'],
+        $row['description'],
+        $row['price'],
+        $row['creator'],
+        $row['owner'],
+        explode(',', $row['images'])
+    );
+}
+
 }

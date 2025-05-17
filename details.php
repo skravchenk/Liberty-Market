@@ -1,5 +1,5 @@
 <?php
-  include('header.php');
+  include('includes/header.php');
 ?>
 
   <div class="page-heading normal-space">
@@ -11,10 +11,10 @@
           <span>Home > <a href="#">Item Details</a></span>
           <div class="buttons">
             <div class="main-button">
-              <a href="explore.html">Explore Our Items</a>
+              <a href="explore.php">Explore Our Items</a>
             </div>
             <div class="border-button">
-              <a href="create.html">Create Your NFT</a>
+              <a href="create.php">Create Your NFT</a>
             </div>
           </div>
         </div>
@@ -184,7 +184,7 @@
         </div>
         <div class="col-lg-4">
           <div class="main-button">
-            <a href="create.html">Create Your NFT Now</a>
+            <a href="create.php">Create Your NFT Now</a>
           </div>
         </div>
         <div class="col-lg-4">
@@ -225,5 +225,5 @@
   </div>
 
 <?php
-  include('footer.php');
+  include('includes/footer.php');
 ?>
