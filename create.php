@@ -64,7 +64,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
       <div class="col-lg-12">
         <?php if ($uploadSuccess): ?>
-          <div style="color: green; margin-bottom: 10px;">Файлы успешно загружены!</div>
+          <div style="color: green; margin-bottom: 10px;">NFT Created!</div>
         <?php elseif (!empty($error)): ?>
           <div style="color: red; margin-bottom: 10px;"><?= $error ?></div>
         <?php endif; ?>

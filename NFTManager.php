@@ -71,7 +71,7 @@ class NFTManager
     }
 
     public function getNFTById(int $id): ?NFT {
-    $stmt = $this->pdo->prepare("SELECT * FROM nfts WHERE id = :id");
+    $stmt = $this->db->prepare("SELECT * FROM nfts WHERE id = :id");
     $stmt->execute(['id' => $id]);
     $row = $stmt->fetch(PDO::FETCH_ASSOC);
 
@@ -80,18 +80,39 @@ class NFTManager
     }
 
     return new NFT(
-        $row['id'],
-        $row['title'],
-        $row['description'],
-        $row['price'],
-        $row['creator'],
-        $row['owner'],
-        explode(',', $row['images'])
+        isset($row['id']) ? (int)$row['id'] : null,
+        $row['title'] ?? '',
+        $row['description'] ?? '',
+        $row['price'] ?? 0,
+        $row['royalties'] ?? 0,
+        json_decode($row['image_paths'], true) ?? []
     );
-    }
+}
+
 
     public function deleteNFT(int $id): void {
         $stmt = $this->db->prepare("DELETE FROM nfts WHERE id = ?");
         $stmt->execute([$id]);
     }
+
+    public function updateNFT(NFT $nft): bool
+    {
+        $stmt = $this->db->prepare("
+            UPDATE nfts SET
+                title = :title,
+                description = :description,
+                price = :price,
+                royalties = :royalties
+            WHERE id = :id
+        ");
+
+        return $stmt->execute([
+            'title' => $nft->getTitle(),
+            'description' => $nft->getDescription(),
+            'price' => $nft->getPrice(),
+            'royalties' => $nft->getRoyalties(),
+            'id' => $nft->getId()
+        ]);
+    }
+
 }

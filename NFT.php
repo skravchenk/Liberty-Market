@@ -34,5 +34,11 @@ class NFT
     public function setId(int $id): void {
         $this->id = $id;
     }
+
+    public function setTitle(string $title) { $this->title = $title; }
+    public function setDescription(string $description) { $this->description = $description; }
+    public function setPrice(float $price) { $this->price = $price; }
+    public function setRoyalties(float $royalties) { $this->royalties = $royalties; }
+
 }
 ?>

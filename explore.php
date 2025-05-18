@@ -148,10 +148,10 @@ try {
                         <input type="hidden" name="id" value="<?= $nft->getId() ?>">
                         <button type="submit" class="btn btn-sm btn-danger">Delete</button>
                       </form>
-                      <form action="" method="GET">
+                      <form action="update.php" method="GET">
                         <input type="hidden" name="id" value="<?= $nft->getId() ?>">
                         <button type="submit" class="btn btn-sm btn-primary">Update</button>
-                      </form>
+                    </form>
                     </div>
                   </div>
                 </div>
