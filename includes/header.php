@@ -45,12 +45,13 @@ https://templatemo.com/tm-577-liberty-market
                     <!-- ***** Logo End ***** -->
                     <!-- ***** Menu Start ***** -->
                     <ul class="nav">
-                        <li><a href="index.php" class="active">Home</a></li>
-                        <li><a href="explore.php">Explore</a></li>
-                        <li><a href="details.php">Item Details</a></li>
-                        <li><a href="author.php">Author</a></li>
-                        <li><a href="create.php">Create Yours</a></li>
-                        <li><a href="signup.php">SignUp</a></li>
+                        <li class="<?php echo ($currentPage == 'home') ? 'active' : ''; ?>"><a href="index.php">Home</a></li>
+                        <li class="<?php echo ($currentPage == 'explore') ? 'active' : ''; ?>"><a href="explore.php">Explore</a></li>
+                        <li class="<?php echo ($currentPage == 'create') ? 'active' : ''; ?>"><a href="create.php">Create</a></li>
+                        <li class="<?php echo ($currentPage == 'details') ? 'active' : ''; ?>"><a href="details.php">Details</a></li>
+                        <li class="<?php echo ($currentPage == 'author') ? 'active' : ''; ?>"><a href="details.php">Details</a></li>
+                        <li class="<?php echo ($currentPage == 'signup') ? 'active' : ''; ?>"><a href="details.php">Details</a></li>
+
                     </ul>   
                     <a class='menu-trigger'>
                         <span>Menu</span>

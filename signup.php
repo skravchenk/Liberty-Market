@@ -31,15 +31,15 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $user = new User($db);
 
         if ($user->register($username, $email, $password)) {
-            $_SESSION['success'] = 'Registration successful!';
+            $_SESSION['success'] = 'Registration and login successful!';
+            ob_end_clean();
+            header('Location: index.php');
+            exit();
         } else {
-            $errors['form'] = 'Failed to register user.';
+            $errors['form'] = 'Username or email already exists.';
         }
 
         $_SESSION['form_data'] = [];
-        ob_end_clean();
-        header('Location: ' . $_SERVER['PHP_SELF']);
-        exit();
     } else {
         $_SESSION['form_data'] = [
             'username' => $username,
@@ -79,7 +79,7 @@ include 'includes/header.php';
         <form method="post">
             <div class="form-group">
                 <label>Username:</label>
-                <input type="text" name="username" value="<?= $username ?>" required>
+                <input type="text" name="username" value="<?= htmlspecialchars($username) ?>" required>
                 <?php if (isset($errors['username'])): ?>
                     <span class="error"><?= $errors['username'] ?></span>
                 <?php endif; ?>
@@ -87,7 +87,7 @@ include 'includes/header.php';
 
             <div class="form-group">
                 <label>Email:</label>
-                <input type="email" name="email" value="<?= $email ?>" required>
+                <input type="email" name="email" value="<?= htmlspecialchars($email) ?>" required>
                 <?php if (isset($errors['email'])): ?>
                     <span class="error"><?= $errors['email'] ?></span>
                 <?php endif; ?>
@@ -101,7 +101,7 @@ include 'includes/header.php';
                 <?php endif; ?>
             </div>
 
-            <button type="submit" class="submit-btn">Submit</button>
+            <button type="submit" class="submit-btn">Register</button>
         </form>
     </div>
 </body>
