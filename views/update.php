@@ -1,7 +1,7 @@
 <?php
-include('includes/header.php');
-require_once 'NFTManager.php';
-require_once 'NFTController.php';
+include('../includes/header.php');
+require_once '../controllers/NFTManager.php';
+require_once '../controllers/NFTController.php';
 
 try {
     $pdo = new PDO('mysql:host=localhost;dbname=lb;charset=utf8', 'root', '');
@@ -15,4 +15,4 @@ try {
     die('DB Error: ' . $e->getMessage());
 }
 
-require_once 'includes/footer.php';
+require_once '../includes/footer.php';

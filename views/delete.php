@@ -1,5 +1,5 @@
 <?php
-require_once 'NFTManager.php';
+require_once '../controllers/NFTManager.php';
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['id'])) {
     $id = (int) $_POST['id'];

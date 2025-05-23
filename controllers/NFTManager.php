@@ -1,6 +1,6 @@
 <?php
 
-require_once 'NFT.php';
+require_once '../models/NFT.php';
 
 class NFTManager
 {
@@ -14,7 +14,7 @@ class NFTManager
     public function uploadImages(array $files): array
     {
         $allowedTypes = ['image/jpeg', 'image/png', 'image/gif'];
-        $uploadDir = __DIR__ . './uploads/';
+        $uploadDir = __DIR__ . '/../uploads/';
         $imagePaths = [];
 
         foreach ($files['tmp_name'] as $key => $tmpName) {
@@ -26,7 +26,7 @@ class NFTManager
                 $targetPath = $uploadDir . $uniqueName;
 
                 if (move_uploaded_file($tmpName, $targetPath)) {
-                    $imagePaths[] = 'uploads/' . $uniqueName;
+                    $imagePaths[] = '../uploads/' . $uniqueName;
                 }
             }
         }

@@ -2,8 +2,8 @@
 session_start();
 ob_start();
 
-require_once 'Database.php';
-require_once 'User.php';
+require_once '../database/Database.php';
+require_once '../controllers/User.controller.php';
 
 function clean_input($data) {
     return htmlspecialchars(stripslashes(trim($data)));
@@ -33,8 +33,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         if ($user->register($username, $email, $password)) {
             $_SESSION['success'] = 'Registration and login successful!';
             ob_end_clean();
-            header('Location: index.php');
-            exit();
         } else {
             $errors['form'] = 'Username or email already exists.';
         }
@@ -54,7 +52,7 @@ if (isset($_SESSION['form_data'])) {
     unset($_SESSION['form_data']);
 }
 
-include 'includes/header.php';
+include '../includes/header.php';
 ?>
 <!DOCTYPE html>
 <html lang="ru">
@@ -62,7 +60,7 @@ include 'includes/header.php';
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Registration</title>
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="../public/styles.css">
 </head>
 <body>
     <div class="registration-container">

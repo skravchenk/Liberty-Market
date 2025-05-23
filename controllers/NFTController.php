@@ -1,7 +1,7 @@
 <?php
 
-require_once 'NFT.php';
-require_once 'NFTManager.php';
+require_once '../models/NFT.php';
+require_once '../controllers/NFTManager.php';
 
 class NFTController
 {

@@ -12,14 +12,14 @@
     <title>Liberty NFT Marketplace - HTML CSS Template</title>
 
     <!-- Bootstrap core CSS -->
-    <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="../vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
 
 
     <!-- Additional CSS Files -->
-    <link rel="stylesheet" href="assets/css/fontawesome.css">
-    <link rel="stylesheet" href="assets/css/templatemo-liberty-market.css">
-    <link rel="stylesheet" href="assets/css/owl.css">
-    <link rel="stylesheet" href="assets/css/animate.css">
+    <link rel="stylesheet" href="../assets/css/fontawesome.css">
+    <link rel="stylesheet" href="../assets/css/templatemo-liberty-market.css">
+    <link rel="stylesheet" href="../assets/css/owl.css">
+    <link rel="stylesheet" href="../assets/css/animate.css">
     <link rel="stylesheet"href="https://unpkg.com/swiper@7/swiper-bundle.min.css"/>
 <!--
 
@@ -40,17 +40,17 @@ https://templatemo.com/tm-577-liberty-market
                 <nav class="main-nav">
                     <!-- ***** Logo Start ***** -->
                     <a href="index.php" class="logo">
-                        <img src="assets/images/logo.png" alt="">
+                        <img src="../assets/images/logo.png" alt="">
                     </a>
                     <!-- ***** Logo End ***** -->
                     <!-- ***** Menu Start ***** -->
                     <ul class="nav">
-                        <li class="<?php echo ($currentPage == 'home') ? 'active' : ''; ?>"><a href="index.php">Home</a></li>
-                        <li class="<?php echo ($currentPage == 'explore') ? 'active' : ''; ?>"><a href="explore.php">Explore</a></li>
-                        <li class="<?php echo ($currentPage == 'create') ? 'active' : ''; ?>"><a href="create.php">Create</a></li>
-                        <li class="<?php echo ($currentPage == 'details') ? 'active' : ''; ?>"><a href="details.php">Details</a></li>
-                        <li class="<?php echo ($currentPage == 'author') ? 'active' : ''; ?>"><a href="details.php">Details</a></li>
-                        <li class="<?php echo ($currentPage == 'signup') ? 'active' : ''; ?>"><a href="details.php">Details</a></li>
+                        <li class="<?php echo ($currentPage == 'home') ? 'active' : ''; ?>"><a href="../views/index.php">Home</a></li>
+                        <li class="<?php echo ($currentPage == 'explore') ? 'active' : ''; ?>"><a href="../views/explore.php">Explore</a></li>
+                        <li class="<?php echo ($currentPage == 'create') ? 'active' : ''; ?>"><a href="../views/create.php">Create</a></li>
+                        <li class="<?php echo ($currentPage == 'details') ? 'active' : ''; ?>"><a href="../views/details.php">Details</a></li>
+                        <li class="<?php echo ($currentPage == 'author') ? 'active' : ''; ?>"><a href="../views/author.php">Author</a></li>
+                        <li class="<?php echo ($currentPage == 'signup') ? 'active' : ''; ?>"><a href="../views/signup.php">Signup</a></li>
 
                     </ul>   
                     <a class='menu-trigger'>
